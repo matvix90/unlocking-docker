@@ -1,0 +1,26 @@
+services:
+  app:
+    build: ./
+    image: django
+    container_name: django-container
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 127.0.0.1:3000:8000
+    working_dir: /app
+    volumes:
+      - ./:/app
+  
+  postgres:
+    image: postgres
+    container_name: postgres-container
+    volumes:
+      - postgres-volume-compose:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=djangodata
+  
+volumes:
+  postgres-volume-compose:
+    name: postgres-data-volume
+
