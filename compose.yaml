@@ -3,24 +3,44 @@ services:
     build: ./
     image: django
     container_name: django-container
-    command: python manage.py runserver 0.0.0.0:8000
-    ports:
-      - 127.0.0.1:3000:8000
+    command: gunicorn --bind unix:/app/gunicorn.sock docker.wsgi:application
+    expose:
+      - 8000
+    environment:
+      - DJANGO_SETTINGS_MODULE=docker.settings_postgres
+    env_file:
+      - .env
     working_dir: /app
     volumes:
-      - ./:/app
+      - static_volume:/app/static
+    networks:
+      - docker-network
+    depends_on:
+      - postgres
   
   postgres:
     image: postgres
     container_name: postgres-container
     volumes:
-      - postgres-volume-compose:/var/lib/postgresql/data/
+      - postgres-volume:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=djangodata
+    networks:
+      - docker-network
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+    networks:
+      - docker-network
+    depends_on:
+      - app
   
 volumes:
-  postgres-volume-compose:
-    name: postgres-data-volume
-
+  postgres-volume:
+    name: postgres-data
