@@ -93,9 +93,3 @@ docker run -dp 80:80 \
   --network django-network \
   nginx
 ```
-
-# Docker Compose
-
-```
-docker compose -p django-project up --build -d
-```
