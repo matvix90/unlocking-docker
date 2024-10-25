@@ -16,4 +16,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Run Django server
-CMD ["gunicorn", "--bind", "unix:/app/gunicorn.sock", "docker.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "docker.wsgi:application"]
