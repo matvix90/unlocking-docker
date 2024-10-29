@@ -1,3 +1,24 @@
-/env
-*.db
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
 *.sqlite3
+*.db
+*.dat
+*.sqlite
+*.pdb
+*/migrations/*
+/staticfiles/
+
+# Media files
+media
+
+# virtualenv
+/env
