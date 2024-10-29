@@ -5,11 +5,29 @@ services:
     container_name: django-container
     command: gunicorn --bind 0.0.0.0:8000 docker.wsgi:application
     expose:
-      - 8000
+      - "8000"
     environment:
-      - DJANGO_SETTINGS_MODULE=docker.settings_postgres
+      - DJANGO_SETTINGS_MODULE=docker.settings_production
+    env_file:
+      - ./.env.django
     volumes:
-      - static-volume:/app/static
+      - static-volume:/app/staticfiles
+    networks:
+      - docker-network
+    depends_on:
+      - postgres
+  
+  app-2:
+    build: ./
+    image: django
+    container_name: django-container-2
+    command: gunicorn --bind 0.0.0.0:8001 --workers 3 --threads 2 docker.wsgi:application
+    environment:
+      - DJANGO_SETTINGS_MODULE=docker.settings_production
+    env_file:
+      - ./.env.django
+    volumes:
+      - static-volume:/app/staticfiles
     networks:
       - docker-network
     depends_on:
@@ -24,12 +42,13 @@ services:
       - ./.env.postgres
     networks:
       - docker-network
-
+    
   nginx:
     image: nginx
     container_name: nginx-container
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - static-volume:/app/staticfiles
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
     networks:
@@ -46,4 +65,4 @@ volumes:
 networks:
   docker-network:
     name: docker-network
-   
+  
