@@ -1,5 +1,7 @@
 # Docker Container
 
+A simple guide on what Docker Container is and how it works.
+
 ## Installation
 
 Clone the repository branch:
