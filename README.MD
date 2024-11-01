@@ -21,6 +21,13 @@ Run the following command to start your development containers:
 docker compose -f compose.dev.yaml -p django-dev up --build -d
 ```
 
+### Start Tailwind
+Run the following command to start Tailwind:
+
+```
+docker compose -f compose.prod.yaml -p django-dev exec app sh -c "cd tailwind && npm run build"
+```
+
 ## Production
 To set up your Django application in a production environment, run the following command:
 
