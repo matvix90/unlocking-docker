@@ -4,5 +4,5 @@
 A simple guide to master Docker
 
 ## Table of Contents
-- [What Docker Container is and how it works](https://github.com/matvix90/unlocking-docker/tree/multi-container-app)
-- [Docker Compose with Django, Postgres and Nginx](https://github.com/matvix90/unlocking-docker/tree/docker-compose)
+- [What is a Docker container and how it works](https://github.com/matvix90/unlocking-docker/tree/multi-container-app)
+- [Docker Compose with Django](https://github.com/matvix90/unlocking-docker/tree/docker-compose)
