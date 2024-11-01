@@ -9,7 +9,8 @@ nginx/
 tailwind/
 .git/
 staticfiles/
-Dockerfile
-compose.yaml
+Dockerfile*
+compose*.yaml
 *.MD
 .dockerignore
+.gitignore
