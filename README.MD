@@ -3,6 +3,7 @@ A simple guide to using Docker Compose for deploying and managing Django applica
 
 ## Table of Contents
 - [Requirements](#requirements)
+- [Installation](#installation)
 - [Development](#development)
 - [Production](#production)
 
@@ -10,6 +11,14 @@ A simple guide to using Docker Compose for deploying and managing Django applica
 
 Before you begin, ensure you have the following installed on your host:
 - [Docker](https://docs.docker.com/get-docker/)
+
+## Installation
+
+Clone the repository branch:
+
+```
+git clone --branch docker-compose https://github.com/matvix90/unlocking-docker.git
+```
 
 ## Development
 To set up your Django application in a development environment, run the following command:
