@@ -1,4 +1,6 @@
 # unlocking-docker
+![Static Badge](https://img.shields.io/badge/docker-blue?style=for-the-badge&logo=docker&logoColor=white)
+
 A simple guide to master Docker
 
 ## Table of Contents
