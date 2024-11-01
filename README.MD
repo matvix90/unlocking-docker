@@ -1,4 +1,12 @@
-# Multi-container-app
+# Docker Container
+
+## Installation
+
+Clone the repository branch:
+
+```
+git clone --branch multi-container-app https://github.com/matvix90/unlocking-docker.git
+```
 
 ## Mount Volume (Persistent Data Storage)
 
