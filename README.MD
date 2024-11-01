@@ -1,6 +1,6 @@
-# Docker Container
+# What is a Docker Container
 
-A simple guide on what Docker Container is and how it works.
+A step by step guide on what a Docker Container is and how it works.
 
 ## Installation
 
